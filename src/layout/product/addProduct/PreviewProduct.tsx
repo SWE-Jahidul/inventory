@@ -60,7 +60,7 @@ const OrderDetailsTable = () => {
         <tbody>
           {demoData.map((item) => (
             <tr className="text-black">
-              <td className="border px-4 py-2">{item.sku}</td>
+              <td className="border px-4 py-2">SKU {item.sku}</td>
               <td className="border px-4 py-2">{item.service_type}</td>
               <td className="border px-4 py-2">{item.description}</td>
               <td className="border px-4 py-2">{item.parcel_type}</td>
