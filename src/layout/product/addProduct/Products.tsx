@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import AddProduct from "./AddProduct";
 import { IoIosAdd } from "react-icons/io";
-import { MdDeleteForever, MdEdit } from "react-icons/md";
+import {MdCheckBoxOutlineBlank  } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import Swal from "sweetalert2";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ProductPreview from "./PreviewProduct";
+import OrderDetails from "./OrderDetails";
 
 interface Product {
   _id: string;
@@ -127,10 +128,10 @@ export default function Products() {
         className="overflow-y-auto scrollbar-hide mx-3"
         style={{ height: "calc(100vh - 125px)" }}
       >
-        <table className="text-center table-auto table rounded-none bg-white font-raleway text-black w-full">
+        <table className="text-center table-auto table rounded-none bg-white font-raleway w-full">
           <thead>
             <tr>
-              <th>ID</th>
+              <th><MdCheckBoxOutlineBlank className="text-xl mx-auto"></MdCheckBoxOutlineBlank> </th>
               <th>Name</th>
               <th>Price</th>
               <th>Dosage Form</th>
@@ -142,23 +143,16 @@ export default function Products() {
           <tbody>
             {filteredProducts.map((product, index) => (
               <tr className="font-semibold text-p-purple" key={product._id}>
-                <th className="border-y">{index + 1}</th>
+                <th onClick={() => handlePreview(product)} className="border-y cursor-pointer"> <span className="bg-slate-200 px-3 py-1 rounded hover:bg-slate-300">{index + 1}</span></th>
                 <td className="border-y">{product.name}</td>
                 <td className="border-y">{product.price}</td>
                 <td className="border-y">{product.dosageForm}</td>
                 <td className="border-y">{product.manufacturer}</td>
                 <td className="border-y">{product.quantity}</td>
                 <td className="border-y text-center">
-                  <span className="flex items-center justify-center">
-                    <RemoveRedEyeIcon
-                      onClick={() => handlePreview(product)}
-                      className="text-2xl cursor-pointer mt-1 text-green-500 rounded hover:bg-[#5d84ee63]"
-                    />
-                    <MdDeleteForever
-                      onClick={() => handleDelete(product._id)}
-                      className="text-2xl text-[#ff3c3c] rounded cursor-pointer hover:bg-[#ff3c3c36]"
-                    />
-                    <MdEdit className="text-2xl mt-1 text-[#5d84ee] cursor-pointer rounded hover:bg-[#5d84ee63]" />
+                  <span className="flex items-center space-x-1 justify-center">
+                    <p className="bg- rounded bg-red-500 text-white py-1 px-2">Delete</p>
+                    <p className="bg- rounded bg-blue-400 text-white py-1 px-2">Edit</p>
                   </span>
                 </td>
               </tr>
@@ -192,6 +186,7 @@ export default function Products() {
           />
         )}
       </Modal>
+      <OrderDetails></OrderDetails>
     </div>
   );
 }
