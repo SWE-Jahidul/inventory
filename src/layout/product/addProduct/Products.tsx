@@ -139,11 +139,11 @@ export default function Products() {
                 <th className="border-y cursor-pointer">
                   <Checkbox />
                 </th>
-                <td
-                  className="border-y cursor-pointer "
-                  onClick={() => handlePreview(product)}
-                >
-                  <span className="bg-[#D3E0F0] px-3 py-1">
+                <td className="border-y">
+                  <span
+                    className="bg-[#D3E0F0] px-3 py-1 cursor-pointer"
+                    onClick={() => handlePreview(product)}
+                  >
                     {" "}
                     {product.order_num}
                   </span>
