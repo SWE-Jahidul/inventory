@@ -43,7 +43,7 @@ const demoData = [
 const OrderDetailsTable = () => {
   return (
     <div>
-      <table className="min-w-full table-auto text-center">
+      <table className="min-w-full table-auto text-center text-black">
         <thead>
           <tr>
             <th className="border px-4 py-2">SKU</th>
@@ -59,7 +59,7 @@ const OrderDetailsTable = () => {
         </thead>
         <tbody>
           {demoData.map((item) => (
-            <tr>
+            <tr className="text-black">
               <td className="border px-4 py-2">{item.sku}</td>
               <td className="border px-4 py-2">{item.service_type}</td>
               <td className="border px-4 py-2">{item.description}</td>
@@ -78,7 +78,7 @@ const OrderDetailsTable = () => {
 };
 
 export default function ProductPreview({ open, onClose }: any) {
-  const [tabIndex, setTabIndex] = useState(0); // State to track the current tab
+  const [tabIndex, setTabIndex] = useState(0); 
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);
@@ -107,16 +107,15 @@ export default function ProductPreview({ open, onClose }: any) {
           </div>
 
           <Tabs value={tabIndex} onChange={handleTabChange}>
-            <Tab label="Order Details" /> <Tab label="Shipment" />
+            <Tab label="Order Details" /> <Tab label="Shipment Items" />
           </Tabs>
-
           {tabIndex === 0 && (
             <div>
               <OrderDetails />
             </div>
           )}
           {tabIndex === 1 && (
-            <div>
+            <div className=" mt-7">
               <OrderDetailsTable />
             </div>
           )}

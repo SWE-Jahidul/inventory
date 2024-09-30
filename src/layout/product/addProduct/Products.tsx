@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import AddProduct from "./AddProduct";
-import { IoIosAdd } from "react-icons/io";
-import {MdCheckBoxOutlineBlank  } from "react-icons/md";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import Swal from "sweetalert2";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ProductPreview from "./PreviewProduct";
-import OrderDetails from "./OrderDetails";
+import Checkbox from "@mui/material/Checkbox";
 
 interface Product {
   _id: string;
-  name: string;
-  price: number;
-  dosageForm: string;
-  manufacturer: string;
-  quantity: number;
+  order_num: string;
+  total_qty: number;
+  status: string;
+  customer_name: string;
 }
 
 export default function Products() {
@@ -23,33 +20,30 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [previewVisible, setPreviewVisible] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null); 
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     const productData: Product[] = [
       {
-        _id: "66f07fd1009cac5a44299206",
-        name: "check25",
-        price: 100,
-        dosageForm: "check",
-        manufacturer: "check",
-        quantity: 12,
-      },
-      {
-        _id: "66f07fd2009cac5a44299208",
-        name: "check26",
-        price: 100,
-        dosageForm: "check",
-        manufacturer: "check",
-        quantity: 12,
+        _id: "66f07fd6009cac5a4429920c",
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
       },
       {
         _id: "66f07fd6009cac5a4429920c",
-        name: "check28",
-        price: 100,
-        dosageForm: "check",
-        manufacturer: "check",
-        quantity: 12,
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
+      },
+      {
+        _id: "66f07fd6009cac5a4429920c",
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
       },
     ];
     setProducts(productData);
@@ -76,7 +70,7 @@ export default function Products() {
   };
 
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    product.order_num.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handlePreview = (product: Product) => {
@@ -88,7 +82,7 @@ export default function Products() {
     <div className="bg-[#e2e0e03a]">
       <div className="flex justify-between py-3 px-3">
         <div className="flex">
-          <h1 className="text-3xl text-black font-semibold">Products</h1>
+          <h1 className="text-3xl text-black font-semibold">Orders</h1>
           <div className="flex ml-10 items-center rounded-md border w-96 bg-white px-3 cursor-pointer">
             <IoIosSearch className="text-2xl text-black mr-2" />
             <input
@@ -102,7 +96,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-
       <Modal
         isOpen={visible}
         onRequestClose={() => setVisible(false)}
@@ -123,36 +116,52 @@ export default function Products() {
       >
         <AddProduct setVisible={setVisible} />
       </Modal>
-
       <div
         className="overflow-y-auto scrollbar-hide mx-3"
         style={{ height: "calc(100vh - 125px)" }}
       >
         <table className="text-center table-auto table rounded-none bg-white font-raleway w-full">
           <thead>
-            <tr>
-              <th><MdCheckBoxOutlineBlank className="text-xl mx-auto"></MdCheckBoxOutlineBlank> </th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Dosage Form</th>
-              <th>Manufacturer</th>
-              <th>Quantity</th>
+            <tr className="text-black">
+              <th>
+                <MdCheckBoxOutlineBlank className="text-xl mx-auto"></MdCheckBoxOutlineBlank>{" "}
+              </th>
+              <th>Order No</th>
+              <th>Total Quantity</th>
+              <th>Status</th>
+              <th>Customer Name</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {filteredProducts.map((product, index) => (
               <tr className="font-semibold text-p-purple" key={product._id}>
-                <th onClick={() => handlePreview(product)} className="border-y cursor-pointer"> <span className="bg-slate-200 px-3 py-1 rounded hover:bg-slate-300">{index + 1}</span></th>
-                <td className="border-y">{product.name}</td>
-                <td className="border-y">{product.price}</td>
-                <td className="border-y">{product.dosageForm}</td>
-                <td className="border-y">{product.manufacturer}</td>
-                <td className="border-y">{product.quantity}</td>
+                <th className="border-y cursor-pointer">
+                  <Checkbox />
+                </th>
+                <td
+                  className="border-y cursor-pointer "
+                  onClick={() => handlePreview(product)}
+                >
+                  <span className="bg-[#D3E0F0] px-3 py-1">
+                    {" "}
+                    {product.order_num}
+                  </span>
+                </td>
+                <td className="border-y">{product.total_qty}</td>
+                <td className="border-y">{product.status}</td>
+                <td className="border-y">{product.customer_name}</td>
                 <td className="border-y text-center">
                   <span className="flex items-center space-x-1 justify-center">
-                    <p className="bg- rounded bg-red-500 text-white py-1 px-2">Delete</p>
-                    <p className="bg- rounded bg-blue-400 text-white py-1 px-2">Edit</p>
+                    <p
+                      className="cursor-pointer rounded bg-red-500 text-white py-1 px-2"
+                      onClick={() => handleDelete(product._id)}
+                    >
+                      Delete
+                    </p>
+                    <p className="cursor-pointer rounded bg-blue-400 text-white py-1 px-2">
+                      Edit
+                    </p>
                   </span>
                 </td>
               </tr>

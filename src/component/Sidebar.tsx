@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Sidebar({ open }: any) {
-  const Menus = [{ title: "Products", link: "/", icon: FaCartShopping }];
+  const Menus = [{ title: "Orders", link: "/", icon: FaCartShopping }];
 
 
   return (
