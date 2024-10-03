@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import Modal from "react-modal";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
-import Swal from "sweetalert2";
 import ProductPreview from "./PreviewProduct";
 import Checkbox from "@mui/material/Checkbox";
 
@@ -47,26 +45,6 @@ export default function Products() {
     setProducts(productData);
   }, []);
 
-  const handleDelete = (id: string) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const updatedProducts = products.filter(
-          (product) => product._id !== id
-        );
-        setProducts(updatedProducts);
-        Swal.fire("Deleted!", "Your product has been deleted.", "success");
-      }
-    });
-  };
-
   const filteredProducts = products.filter((product) =>
     product.order_num.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -81,7 +59,7 @@ export default function Products() {
       <div className="flex justify-between py-3 px-3">
         <div className="flex">
           <h1 className="text-3xl text-black font-semibold">Orders</h1>
-          <div className="flex ml-10 items-center rounded-md border w-96 bg-white px-3 cursor-pointer">
+          <div className="flex ml-10 items-center rounded-md border md:w-96 sm:w-44 bg-white px-3 cursor-pointer">
             <IoIosSearch className="text-2xl text-black mr-2" />
             <input
               className="bg-white w-11/12 font-raleway text-black outline-none"
@@ -98,9 +76,9 @@ export default function Products() {
         className="overflow-y-auto scrollbar-hide mx-3"
         style={{ height: "calc(100vh - 125px)" }}
       >
-        <table className="text-center table-auto table rounded-none bg-white font-raleway w-full">
+        <table className="text-center table-auto table rounded-none bg-white font-raleway sm:w-3/12 md:w-full">
           <thead>
-            <tr className="text-black">
+            <tr className="text-white bg-[#1f2947]">
               <th>
                 <MdCheckBoxOutlineBlank className="text-xl mx-auto"></MdCheckBoxOutlineBlank>{" "}
               </th>
@@ -113,28 +91,24 @@ export default function Products() {
           </thead>
           <tbody>
             {filteredProducts.map((product) => (
-              <tr className="font-semibold text-p-purple" key={product._id}>
-                <th className="border-y cursor-pointer">
+              <tr className="font-semibold text-p-purple even:bg-gray-200" key={product._id}>
+                <th className="border-y cursor-pointer py-2"> {/* Adjust padding as needed */}
                   <Checkbox />
                 </th>
-                <td className="border-y">
+                <td className="border-y py-2"> {/* Reduced padding */}
                   <span
-                    className="bg-[#D3E0F0] px-3 py-1 cursor-pointer"
+                    className="bg-[#D3E0F0] px-3 py-1 rounded cursor-pointer"
                     onClick={() => handlePreview(product)}
                   >
-                    {" "}
                     {product.order_num}
                   </span>
                 </td>
-                <td className="border-y">{product.total_qty}</td>
-                <td className="border-y">{product.status}</td>
-                <td className="border-y">{product.customer_name}</td>
-                <td className="border-y text-center">
+                <td className="border-y py-2">{product.total_qty}</td>
+                <td className="border-y py-2">{product.status}</td>
+                <td className="border-y py-2">{product.customer_name}</td>
+                <td className="border-y text-center py-2">
                   <span className="flex items-center space-x-1 justify-center">
-                    <p
-                      className="cursor-pointer rounded bg-red-500 text-white py-1 px-2"
-                      onClick={() => handleDelete(product._id)}
-                    >
+                    <p className="cursor-pointer rounded bg-red-500 text-white py-1 px-2">
                       Delete
                     </p>
                     <p className="cursor-pointer rounded bg-blue-400 text-white py-1 px-2">
@@ -145,34 +119,14 @@ export default function Products() {
               </tr>
             ))}
           </tbody>
+
         </table>
       </div>
-      <Modal
-        isOpen={previewVisible}
-        onRequestClose={() => setPreviewVisible(false)}
-        style={{
-          overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.26)",
-          },
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            width: "50%",
-            transform: "translate(-50%, -50%)",
-            padding: 0,
-          },
-        }}
-      >
-        {selectedProduct && (
-          <ProductPreview
-            open={previewVisible}
-            onClose={() => setPreviewVisible(false)}
-            productData={selectedProduct}
-          />
-        )}
-      </Modal>
+      <ProductPreview
+        open={previewVisible}
+        onClose={() => setPreviewVisible(false)}
+        productData={selectedProduct}
+      />
     </div>
   );
 }
