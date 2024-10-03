@@ -41,6 +41,27 @@ export default function Products() {
         status: "check",
         customer_name: "Abdul",
       },
+      {
+        _id: "66f07fd6009cac5a4429920c",
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
+      },
+      {
+        _id: "66f07fd6009cac5a4429920c",
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
+      },
+      {
+        _id: "66f07fd6009cac5a4429920c",
+        order_num: "10Abdul",
+        total_qty: 100,
+        status: "check",
+        customer_name: "Abdul",
+      },
     ];
     setProducts(productData);
   }, []);

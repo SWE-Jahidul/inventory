@@ -55,14 +55,14 @@ export default function OrderDetails() {
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
-            Customer Alt. Address
+            Customer Alternate Address
           </h3>
           <p className="w-4">:</p>
           <h1 className="text-gray-800">2 Bangladesh</h1>
         </div>
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
-            City
+            Customer City
           </h3>
           <p className="w-4">:</p>
           <h1 className="text-gray-800">Bangladesh</h1>

@@ -38,6 +38,39 @@ const demoData = [
     total_carton: 1,
     serial_number: "f6142",
   },
+  {
+    sku: 4,
+    service_type: "Product A",
+    description: "Standard",
+    parcel_type: 2,
+    quantity: 1,
+    Weight: 1.1,
+    carton_id: "Not Provided",
+    total_carton: 1,
+    serial_number: "f6142",
+  },
+  {
+    sku: 5,
+    service_type: "Product A",
+    description: "Standard",
+    parcel_type: 2,
+    quantity: 1,
+    Weight: 1.1,
+    carton_id: "Not Provided",
+    total_carton: 1,
+    serial_number: "f6142",
+  },
+  {
+    sku: 6,
+    service_type: "Product B",
+    description: "Standard",
+    parcel_type: 2,
+    quantity: 1,
+    Weight: 1.1,
+    carton_id: "Not Provided",
+    total_carton: 1,
+    serial_number: "f6142",
+  },
 ];
 
 const OrderDetailsTable = () => {
@@ -54,7 +87,7 @@ const OrderDetailsTable = () => {
             <th className="border px-4 py-2">Weight</th>
             <th className="border px-4 py-2">Carton ID</th>
             <th className="border px-4 py-2">Total Carton</th>
-            <th className="border px-4 py-2">Serial Number</th>
+            <th className="border px-4 py-2">Serial Numbers</th>
           </tr>
         </thead>
         <tbody>
