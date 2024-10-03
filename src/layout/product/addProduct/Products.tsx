@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import AddProduct from "./AddProduct";
 import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import Swal from "sweetalert2";
@@ -16,7 +15,6 @@ interface Product {
 }
 
 export default function Products() {
-  const [visible, setVisible] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [previewVisible, setPreviewVisible] = useState(false);
@@ -96,26 +94,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-      <Modal
-        isOpen={visible}
-        onRequestClose={() => setVisible(false)}
-        style={{
-          overlay: {
-            backgroundColor: "transparent",
-          },
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            width: "50%",
-            transform: "translate(-50%, -50%)",
-            padding: 0,
-          },
-        }}
-      >
-        <AddProduct setVisible={setVisible} />
-      </Modal>
       <div
         className="overflow-y-auto scrollbar-hide mx-3"
         style={{ height: "calc(100vh - 125px)" }}
@@ -134,7 +112,7 @@ export default function Products() {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map((product, index) => (
+            {filteredProducts.map((product) => (
               <tr className="font-semibold text-p-purple" key={product._id}>
                 <th className="border-y cursor-pointer">
                   <Checkbox />

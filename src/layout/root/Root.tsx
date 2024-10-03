@@ -5,13 +5,14 @@ import Sidebar from "../../component/Sidebar";
 import { useState } from "react";
 
 export default function Root() {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(true);
+  
   return (
     <div>
       <div>
         <div className="flex bg-white items-center">
           <Logo open={open} setOpen={setOpen}></Logo>
-          <Navbar open={open} setOpen={setOpen}></Navbar>
+          <Navbar></Navbar> 
         </div>
         <div className="flex bg-[#f9f8fc]">
           <Sidebar open={open} setOpen={setOpen}></Sidebar>

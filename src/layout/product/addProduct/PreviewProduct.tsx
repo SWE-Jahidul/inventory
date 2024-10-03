@@ -78,9 +78,9 @@ const OrderDetailsTable = () => {
 };
 
 export default function ProductPreview({ open, onClose }: any) {
-  const [tabIndex, setTabIndex] = useState(0); 
+  const [tabIndex, setTabIndex] = useState(0);
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);
   };
 
@@ -105,7 +105,6 @@ export default function ProductPreview({ open, onClose }: any) {
               <ArrowBackIcon className="pb-1" /> Go Back
             </button>
           </div>
-
           <Tabs value={tabIndex} onChange={handleTabChange}>
             <Tab label="Order Details" /> <Tab label="Shipment Items" />
           </Tabs>
