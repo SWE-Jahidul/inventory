@@ -113,10 +113,10 @@ export default function Products() {
           <tbody>
             {filteredProducts.map((product) => (
               <tr className="font-semibold text-p-purple even:bg-gray-200" key={product._id}>
-                <th className="border-y cursor-pointer py-2"> {/* Adjust padding as needed */}
+                <th className="border-y cursor-pointer py-1"> {/* Adjust padding as needed */}
                   <Checkbox />
                 </th>
-                <td className="border-y py-2"> {/* Reduced padding */}
+                <td className="border-y py-1"> {/* Reduced padding */}
                   <span
                     className="bg-[#D3E0F0] px-3 py-1 rounded cursor-pointer"
                     onClick={() => handlePreview(product)}
@@ -124,10 +124,10 @@ export default function Products() {
                     {product.order_num}
                   </span>
                 </td>
-                <td className="border-y py-2">{product.total_qty}</td>
-                <td className="border-y py-2">{product.status}</td>
-                <td className="border-y py-2">{product.customer_name}</td>
-                <td className="border-y text-center py-2">
+                <td className="border-y py-1">{product.total_qty}</td>
+                <td className="border-y py-1">{product.status}</td>
+                <td className="border-y py-1">{product.customer_name}</td>
+                <td className="border-y text-center py-1">
                   <span className="flex items-center space-x-1 justify-center">
                     <p className="cursor-pointer rounded bg-red-500 text-white py-1 px-2">
                       Delete
