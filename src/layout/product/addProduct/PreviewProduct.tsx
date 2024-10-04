@@ -133,8 +133,8 @@ export default function ProductPreview({ open, onClose }: any) {
         }}
       >
         <section className="px-2 text-gray-600 body-font">
-          <div className=" text-black">
-            <button className="font-bold font-Poppins" onClick={onClose}>
+          <div className="text-black">
+            <button className="font-semibold font-Poppins" onClick={onClose}>
               <ArrowBackIcon className="pb-1" /> Go Back
             </button>
           </div>
@@ -146,6 +146,7 @@ export default function ProductPreview({ open, onClose }: any) {
                 color: "black",
                 fontFamily: "Poppins",
                 fontSize: "16px",
+                textTransform: "capitalize",
               }}
             />
             <Tab
@@ -155,6 +156,7 @@ export default function ProductPreview({ open, onClose }: any) {
                 color: "black",
                 fontFamily: "Poppins",
                 fontSize: "16px",
+                textTransform: "capitalize",
               }}
             />
           </Tabs>
