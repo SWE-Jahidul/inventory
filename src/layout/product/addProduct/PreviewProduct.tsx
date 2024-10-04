@@ -78,7 +78,7 @@ const OrderDetailsTable = () => {
     <div>
       <table className="min-w-full table-auto text-center text-black">
         <thead>
-          <tr className="text-white bg-[#1f2947] text-[16px]">
+          <tr className="text-white bg-[#1f2947] text-[16px] font-Poppins">
             <th className="px-4 py-2">SKU</th>
             <th className="px-4 py-2">Service Type</th>
             <th className="px-4 py-2">Description</th>
@@ -92,7 +92,7 @@ const OrderDetailsTable = () => {
         </thead>
         <tbody>
           {demoData.map((item) => (
-            <tr className="font-semibold text-p-purple even:bg-gray-200">
+            <tr className="text-p-purple even:bg-gray-200 font-Poppins font-normal">
               <td className="px-4 py-2">SKU {item.sku}</td>
               <td className="px-4 py-2">{item.service_type}</td>
               <td className="px-4 py-2">{item.description}</td>
