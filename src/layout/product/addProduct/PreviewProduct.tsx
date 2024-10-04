@@ -92,7 +92,7 @@ const OrderDetailsTable = () => {
         </thead>
         <tbody>
           {demoData.map((item) => (
-            <tr className="text-p-purple even:bg-gray-200 font-Poppins font-normal">
+            <tr className="even:bg-gray-200 font-Poppins font-normal text-black">
               <td className="px-4 py-2">SKU {item.sku}</td>
               <td className="px-4 py-2">{item.service_type}</td>
               <td className="px-4 py-2">{item.description}</td>
