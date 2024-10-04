@@ -1,6 +1,6 @@
 export default function OrderDetails() {
   return (
-    <div className="text-black mt-7">
+    <div className="text-black mt-7 font-Poppins">
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -17,7 +17,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">1</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -34,7 +33,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">Calgory</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -51,7 +49,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">1 Bangladesh</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -68,7 +65,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">Bangladesh</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -85,7 +81,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">NU</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -102,7 +97,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">4167920088</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -119,7 +113,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">Calgary</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">
@@ -136,7 +129,6 @@ export default function OrderDetails() {
           <h1 className="text-gray-800">9/30/2024, 3:25:28 PM</h1>
         </div>
       </div>
-
       <div className="flex sm:flex-col md:flex-row mb-3">
         <div className="flex items-center text-left w-1/2">
           <h3 className="text-sm w-4/12  md:w-6/12 font-semibold uppercase tracking-wider">

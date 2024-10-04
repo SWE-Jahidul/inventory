@@ -78,30 +78,30 @@ const OrderDetailsTable = () => {
     <div>
       <table className="min-w-full table-auto text-center text-black">
         <thead>
-          <tr>
-            <th className="border px-4 py-2">SKU</th>
-            <th className="border px-4 py-2">Service Type</th>
-            <th className="border px-4 py-2">Description</th>
-            <th className="border px-4 py-2">Parcel Type</th>
-            <th className="border px-4 py-2">Quantity</th>
-            <th className="border px-4 py-2">Weight</th>
-            <th className="border px-4 py-2">Carton ID</th>
-            <th className="border px-4 py-2">Total Carton</th>
-            <th className="border px-4 py-2">Serial Numbers</th>
+          <tr className="text-white bg-[#1f2947] text-[16px]">
+            <th className="px-4 py-2">SKU</th>
+            <th className="px-4 py-2">Service Type</th>
+            <th className="px-4 py-2">Description</th>
+            <th className="px-4 py-2">Parcel Type</th>
+            <th className="px-4 py-2">Quantity</th>
+            <th className="px-4 py-2">Weight</th>
+            <th className="px-4 py-2">Carton ID</th>
+            <th className="px-4 py-2">Total Carton</th>
+            <th className="px-4 py-2">Serial Numbers</th>
           </tr>
         </thead>
         <tbody>
           {demoData.map((item) => (
-            <tr className="text-black">
-              <td className="border px-4 py-2">SKU {item.sku}</td>
-              <td className="border px-4 py-2">{item.service_type}</td>
-              <td className="border px-4 py-2">{item.description}</td>
-              <td className="border px-4 py-2">{item.parcel_type}</td>
-              <td className="border px-4 py-2">{item.quantity}</td>
-              <td className="border px-4 py-2">{item.Weight}</td>
-              <td className="border px-4 py-2">{item.carton_id}</td>
-              <td className="border px-4 py-2">{item.total_carton}</td>
-              <td className="border px-4 py-2">{item.serial_number}</td>
+            <tr className="font-semibold text-p-purple even:bg-gray-200">
+              <td className="px-4 py-2">SKU {item.sku}</td>
+              <td className="px-4 py-2">{item.service_type}</td>
+              <td className="px-4 py-2">{item.description}</td>
+              <td className="px-4 py-2">{item.parcel_type}</td>
+              <td className="px-4 py-2">{item.quantity}</td>
+              <td className="px-4 py-2">{item.Weight}</td>
+              <td className="px-4 py-2">{item.carton_id}</td>
+              <td className="px-4 py-2">{item.total_carton}</td>
+              <td className="px-4 py-2">{item.serial_number}</td>
             </tr>
           ))}
         </tbody>
@@ -123,7 +123,7 @@ export default function ProductPreview({ open, onClose }: any) {
         role="presentation"
         sx={{
           width: "75vw",
-          p: 2,
+          p: 1,
           "@media (max-width: 800px)": {
             width: "90vw",
           },
@@ -132,22 +132,39 @@ export default function ProductPreview({ open, onClose }: any) {
           },
         }}
       >
-        <section className="px-6 text-gray-600 body-font">
-          <div className="mb-4 text-black">
-            <button className="font-bold" onClick={onClose}>
+        <section className="px-2 text-gray-600 body-font">
+          <div className=" text-black">
+            <button className="font-bold font-Poppins" onClick={onClose}>
               <ArrowBackIcon className="pb-1" /> Go Back
             </button>
           </div>
           <Tabs value={tabIndex} onChange={handleTabChange}>
-            <Tab label="Order Details" /> <Tab label="Shipment Items" />
+            <Tab
+              label="Order Details"
+              sx={{
+                fontWeight: 600,
+                color: "black",
+                fontFamily: "Poppins",
+                fontSize: "16px",
+              }}
+            />
+            <Tab
+              label="Shipment Items"
+              sx={{
+                fontWeight: 600,
+                color: "black",
+                fontFamily: "Poppins",
+                fontSize: "16px",
+              }}
+            />
           </Tabs>
           {tabIndex === 0 && (
-            <div>
+            <div className="mx-3">
               <OrderDetails />
             </div>
           )}
           {tabIndex === 1 && (
-            <div className=" mt-7">
+            <div className="mt-7">
               <OrderDetailsTable />
             </div>
           )}

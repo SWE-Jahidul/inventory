@@ -34,7 +34,7 @@ export default function Sidebar({ open }: any) {
                   </span>
                   <span
                     style={{ transitionDelay: `${index + 9}0ms` }}
-                    className={`flex-1 whitespace-pre font-medium text-[18px] ${
+                    className={`flex-1 whitespace-pre font-medium text-[18px] font-Poppins ${
                       !open && "hidden"
                     }`}
                   >

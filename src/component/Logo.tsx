@@ -8,7 +8,7 @@ export default function Logo({ open, setOpen }:any) {
           className={`text-4xl cursor-pointer duration-300 text-black ${!open && "rotate-180"}`}
           onClick={() => setOpen(!open)}
         />
-        <span className="font-bold text-2xl   text-black ml-2">Inventory</span>
+        <span className="font-bold text-2xl uppercase font-Poppins text-black ml-2">Inventory</span>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ export default {
         "p-purple" :"#081A51"
       },
       fontFamily: {
-        raleway: ['"Raleway"', 'sans-serif'],
+        Poppins: ['Poppins'],
       }
     },
   },

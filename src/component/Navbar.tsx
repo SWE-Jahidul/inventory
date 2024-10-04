@@ -4,7 +4,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between w-full">
           <div className="flex space-x-2 items-center"></div>
           <div className="flex space-x-3 items-center">
-            <h1 className="text-p-purple font-bold font-raleway">Jahidul Islam</h1>
+            <h1 className="text-p-purple font-bold font-Poppins">Jahidul Islam</h1>
           </div>
         </div>
       </div>
